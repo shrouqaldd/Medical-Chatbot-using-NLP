@@ -1,52 +1,90 @@
-#  Dr.AnswerBot – Medical Question Answering Bot
+# Medical Chatbot using NLP  
 
-An intelligent **Natural Language Processing (NLP)** bot designed to answer medical questions in simple, clear language.  
-The bot uses text preprocessing, vector similarity, and machine learning models to understand user queries and provide accurate, knowledge-based responses.
-
----
-
-##  Overview
-
-**Dr.AnswerBot** acts as a medical learning assistant:
-- Understands user questions in natural language.
-- Retrieves and returns relevant medical knowledge.
-- Uses pre-trained embeddings and ML models to improve answer accuracy.
-- Can handle variations in phrasing and synonyms.
-
-**Example interaction:**
-User: What are the treatments for Nonalcoholic Steatohepatitis?
-Bot: [Provides a detailed medically accurate answer...]
-
+by **Shrouq Ahmad Aldalbahi***  
 
 ---
 
-## System Architecture
+## Problem Statement  
 
-### NLP Pipeline
-1. **Text Preprocessing**
-   - Tokenization (NLTK)
-   - Stopword removal
-   - Lowercasing & punctuation removal
-2. **Feature Extraction**
-   - TF-IDF Vectorization
-   - Word Embeddings (Word2Vec via Gensim)
-3. **Similarity Matching**
-   - Cosine similarity to find most relevant answer
-4. **Machine Learning Models**
-   - Naive Bayes
-   - Logistic Regression
-   - GRU-based neural network (Keras/TensorFlow)
-5. **Evaluation**
-   - Accuracy, Precision, Recall, F1-score
+The primary goal of this project is to develop an **NLP-based medical chatbot** capable of accurately answering a wide range of medical inquiries.  
+
+- **Motivation**  
+  - Improve healthcare accessibility by providing instant and reliable information.  
+  - Bridge knowledge gaps where access to healthcare professionals is limited.  
+
+- **Scope**  
+  - Focuses on **text-based questions and answers**.  
+  - Provides **credible responses** sourced from a trusted dataset.  
+
+- **Expected Result**  
+  - Deliver accurate and understandable responses to users’ medical queries.  
+
+> ⚠️ Disclaimer: This chatbot is for **educational purposes only** and should not be considered medical advice.  
 
 ---
 
-## Technologies & Libraries
-- **NLP**: NLTK, Gensim
-- **ML Models**: scikit-learn, TensorFlow/Keras
-- **Data Processing**: Pandas, NumPy
-- **Vectorization**: TF-IDF, Word2Vec
-- **Similarity Metrics**: Cosine Similarity
-- **Visualization**: Matplotlib, Seaborn
+## Dataset  
 
--
+- **Name**: MedQuAD – Medical Question Answering Dataset  
+- **Size**: ~16,000 entries (questions, answers, source, focus area)  
+- **Coverage**: 14,984 unique questions across diverse medical topics.  
+- **Average**: ~1.1 answers per question (some up to 20 answers).  
+- **Focus Areas**: Wide range of specialties such as cardiology, dermatology, oncology, etc.  
+
+[[Dataset on Kaggle](https://www.kaggle.com/datasets/abhinavwalia95/medquad)](https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)  
+
+---
+
+## Preprocessing  
+
+To prepare the dataset for similarity-based matching, the following steps were applied:  
+
+- **Tokenization**: Split sentences into words.  
+- **Normalization**: Lowercasing and punctuation removal.  
+- **Lemmatization**: Reducing words to their base form (e.g., “running” → “run”).  
+- **Stopword Removal**: Filtering out common words such as “the”, “and”, etc.  
+
+These steps ensured that both user queries and dataset answers were represented in a **clean and consistent format**.  
+
+---
+
+## Text Representation  
+
+For the chatbot to “understand” user queries, text was converted into numerical vectors.  
+
+- **TF-IDF (Term Frequency – Inverse Document Frequency)**  
+  - Used as the **primary method**.  
+  - Transforms both medical questions and user queries into vectors.  
+  - Cosine similarity is then used to find the closest matching question, and the corresponding answer is retrieved.  
+
+- **Other methods explored**:  
+  - Bag of Words (BoW)  
+  - Word Embeddings (GloVe)  
+  These were tested but not included in the final workflow to keep the system lightweight.  
+
+---
+
+## Chat Flow  
+
+The chatbot’s logic:  
+
+1. Preprocess user input.  
+2. Convert query and stored questions into TF-IDF vectors.  
+3. Compute **cosine similarity**.  
+4. Retrieve the **answer** linked to the most similar question.  
+
+### Example Interaction  
+User: What are the symptoms of diabetes?
+Bot: The most common symptoms of diabetes include frequent urination, excessive thirst, unexplained weight loss, and fatigue.
+
+
+
+---
+
+## References  
+
+- [[MedQuAD: Medical Question Answering Dataset – Kaggle](https://www.kaggle.com/datasets/abhinavwalia95/medquad)  ](https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)
+- Bhavsar, S. (2021). *Building a Chatbot in Python*. datamahadev.com.  
+- Hickman, L., Thapa, S., Tay, L., Cao, M., & Srinivasan, P. (2022). *Text preprocessing for text mining in organizational research: Review and recommendations.* Organizational Research Methods, 25(1), 114-146.  
+- Intellipaat (YouTube). *Building Chatbots with Python*.  
+
