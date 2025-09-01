@@ -31,7 +31,7 @@ The primary goal of this project is to develop an **NLP-based medical chatbot** 
 - **Average**: ~1.1 answers per question (some up to 20 answers).  
 - **Focus Areas**: Wide range of specialties such as cardiology, dermatology, oncology, etc.  
 
-[[Dataset on Kaggle](https://www.kaggle.com/datasets/abhinavwalia95/medquad)](https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)  
+(https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)  
 
 ---
 
@@ -83,7 +83,8 @@ Bot: The most common symptoms of diabetes include frequent urination, excessive 
 
 ## References  
 
-- [[MedQuAD: Medical Question Answering Dataset – Kaggle](https://www.kaggle.com/datasets/abhinavwalia95/medquad)  ](https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)
+
+(https://www.kaggle.com/datasets/pythonafroz/medquad-medical-question-answer-for-ai-research)
 - Bhavsar, S. (2021). *Building a Chatbot in Python*. datamahadev.com.  
 - Hickman, L., Thapa, S., Tay, L., Cao, M., & Srinivasan, P. (2022). *Text preprocessing for text mining in organizational research: Review and recommendations.* Organizational Research Methods, 25(1), 114-146.  
 - Intellipaat (YouTube). *Building Chatbots with Python*.  
